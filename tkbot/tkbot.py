@@ -1,12 +1,15 @@
 import nest_asyncio 
 nest_asyncio.apply()
 
+import random
+
 import discord
 from discord.ext import commands
+from discord_buttons_plugin import  *
 
 
 bot = commands.Bot(command_prefix='!',intents=discord.Intents.all())
-
+buttons = ButtonsClient(bot)
 
 @bot.command()
 async def 경매(message, *, text):
@@ -41,5 +44,49 @@ async def 경매(message, *, text):
     else:
         await message.send(embed=discord.Embed(title="쌀먹계산기", description="숫자쳐써라"))
 
+
+
+@bot.command()
+async def 이민형(message):
+    await message.send('신동현')
+
+@bot.command()
+async def 이학래(message):
+    await message.send('조현각')
+
+@bot.command()
+async def 배수지(message):
+    await message.send('전과자')    
+
+@bot.command()
+async def 신동현(message):
+    await message.send(embed=discord.Embed(title="신동현은", description="이민형")) 
+
+@bot.command()
+async def 김태균(message):
+    await message.send(embed=discord.Embed(title="멋쟁이", description="멋쟁이")) 
+
+
+
+@bot.command()
+async def 테스트(message):
+        await buttons.send(
+        content = "아래쪽 버튼을 눌러주세요.", 
+        channel = message.channel.id,
+        components = [
+            ActionRow([
+                Button(
+                    label="버튼입니다.", 
+                    style=ButtonType().Primary, 
+                    custom_id="button_one"       
+                )
+            ])
+        ]
+    )
     
-bot.run('MTAyMTkyOTA4OTM2OTYzNjkwNQ.GlIbqd.yrCM6kmErY-ZlaR9gfJ406tHDSkWqP9jHZtYTw')
+@buttons.click
+async def button_one(message):
+    await message.reply("버튼이 눌렸습니다.")
+    print('zz')
+
+bot.run('MTAyMTkyOTA4OTM2OTYzNjkwNQ.GRy-a_.DbtswYSNiiTkTieoyzsfeKXDheZCzIYJ1uZ4ZM')
