@@ -47,24 +47,8 @@ async def 경매(message, *, text):
 
 
 @bot.command()
-async def 이민형(message):
-    await message.send('신동현')
-
-@bot.command()
-async def 이학래(message):
-    await message.send('조현각')
-
-@bot.command()
-async def 배수지(message):
-    await message.send('전과자')    
-
-@bot.command()
-async def 신동현(message):
-    await message.send(embed=discord.Embed(title="신동현은", description="이민형")) 
-
-@bot.command()
-async def 김태균(message):
-    await message.send(embed=discord.Embed(title="멋쟁이", description="멋쟁이")) 
+async def test(message):
+    await message.send('test')
 
 
 
